@@ -12,11 +12,17 @@ export const Container = styled.View`
 `;
 export const AreaImage = styled.View`
   flex: 1;
+  width: 100%;
   flex-wrap: wrap;
-  flex-grow: 1;
 `;
-export const Image = styled.Image`
+export const Image = styled.Image.attrs(props => {
+  return {
+    resizeMode: 'center',
+  };
+})`
   flex: 1;
+  width: 100%;
+  height: 100%;
 `;
 export const Message = styled.Text`
   flex: 1;

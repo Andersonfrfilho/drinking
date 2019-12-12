@@ -7,7 +7,7 @@ import {
   commonFailureAction,
 } from '../common/actions';
 import {addDetailDrink} from '../detail/actions';
-import {navigate} from '../../../routes';
+import {navigate} from '../../../services/navigation';
 
 function* DrinkRequest({payload}) {
   yield put(commonLoadingActivity('carregando drinks...'));
@@ -18,7 +18,6 @@ function* DrinkRequest({payload}) {
       axios.get,
       `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
     );
-    console.tron.log(data.drinks[0]);
     const ingredients = [
       {
         strIngredient: data.drinks[0].strIngredient1,
@@ -87,6 +86,8 @@ function* DrinkRequest({payload}) {
 
     yield put(addDetailDrink(data, ingredientsInfo));
     yield put(commonSuccessAction(''));
+    console.tron.log('aqui');
+    navigate('Details');
   } catch (error) {
     if (error instanceof TypeError) {
       yield put(

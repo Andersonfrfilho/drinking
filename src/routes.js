@@ -7,8 +7,8 @@ import Drinks from './pages/Drinks';
 import Details from './pages/Details';
 
 const createSwitchNavigatorApp = createSwitchNavigator({
-  Details,
   Category,
+  Details,
   Drinks,
 });
 
