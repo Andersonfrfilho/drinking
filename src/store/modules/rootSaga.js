@@ -1,15 +1,14 @@
-import {all, spawn} from 'redux-saga/effects';
+import {all} from 'redux-saga/effects';
 
-import login from './login/sagas';
-import menu from './menu/sagas';
-import repositories from './repositories/sagas';
-import {startWatchingNetworkConnectivity} from './offline';
+import category from './category/sagas';
+import detail from './detail/sagas';
+import drinks from './drinks/sagas';
 
 export default function* rootSaga() {
   return yield all([
-    login,
-    menu,
-    repositories,
+    category,
+    detail,
+    drinks,
     // adicione mais sagas
   ]);
 }

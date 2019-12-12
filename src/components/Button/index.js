@@ -1,40 +1,45 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Container, Button, Text, Loading} from './styles';
+import {Button, Text, Container, Icon} from './styles';
 
-export default function Logo({
+export default function ButtonComponent({
   title,
-  loading,
   disabled,
+  nameIcon,
   functionOnPress,
-  loadingSize,
-  loadingColor,
 }) {
   return (
     <Container>
-      <Button onPress={functionOnPress} disabled={disabled}>
-        {loading ? (
-          <Loading size={loadingSize} color={loadingColor} />
-        ) : (
-          <Text>{title}</Text>
-        )}
+      <Button
+        onPress={functionOnPress}
+        disabled={disabled}
+        style={{
+          shadowColor: '#000',
+          shadowOffset: {
+            width: 0,
+            height: 6,
+          },
+          shadowOpacity: 0.69,
+          shadowRadius: 10,
+
+          elevation: 5,
+        }}>
+        <Icon name={nameIcon} />
+        <Text>{title}</Text>
       </Button>
     </Container>
   );
 }
-Logo.propTypes = {
+ButtonComponent.propTypes = {
   title: PropTypes.string,
+  nameIcon: PropTypes.string,
   functionOnPress: PropTypes.func,
-  loading: PropTypes.bool,
-  loadingSize: PropTypes.string,
-  loadingColor: PropTypes.string,
+
   disabled: PropTypes.bool,
 };
-Logo.defaultProps = {
-  title: 'Título da Página',
+ButtonComponent.defaultProps = {
+  title: 'title button',
+  nameIcon: 'fonticons',
   functionOnPress: () => {},
-  loading: false,
-  loadingSize: 'small',
-  loadingColor: '#f7f7f7',
   disabled: true,
 };

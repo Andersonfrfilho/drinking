@@ -1,6 +1,6 @@
 import produce from 'immer';
 
-export default function menu(state = [], action) {
+export default function detail(state = [], action) {
   switch (action.type) {
     default:
       return state;

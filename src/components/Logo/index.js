@@ -10,7 +10,7 @@ export default function Logo({message, error, colorMessage}) {
         <Image source={ImageLogo} resizeMode="center" />
       </AreaImage>
       {!!message && (
-        <Message error={error} color={colorMessage}>
+        <Message error={error} color={colorMessage} numberOfLines={1}>
           {message}
         </Message>
       )}

@@ -1,28 +1,26 @@
 // chama funções assincronas com respostas
 // select busca informações sobre o estado
-import {call, select, spawn, put, all, takeLatest} from 'redux-saga/effects';
+import {call, put, all, takeLatest} from 'redux-saga/effects';
 import AsyncStorage from '@react-native-community/async-storage';
-import api from '../../../services/api';
+import axios from 'axios';
 import {
   commonLoadingActivity,
   commonSuccessAction,
   commonFailureAction,
 } from '../common/actions';
-import {addToLoginSuccess} from './actions';
+import {addInfos} from '../drinks/actions';
 import {navigate} from '../../../services/navigation';
 
-import {startWatchingNetworkConnectivity} from '../offline';
-
-function* addToLogin({payload}) {
-  yield put(commonLoadingActivity('carregando...'));
-  const {username} = payload;
+function* categoryDrinkRequest({payload}) {
+  yield put(commonLoadingActivity('carregando drinks...'));
+  const {link, name} = payload;
   try {
-    const {data} = yield call(api.get, `/users/${username}`);
-    yield call(AsyncStorage.setItem, '@AppName:user', data.login);
+    const {data} = yield call(axios.get, `${link}`);
+    yield call(AsyncStorage.setItem, '@DrinKing:drinks', JSON.stringify(data));
+    yield put(addInfos(name, data.drinks));
     yield put(commonSuccessAction(''));
-    navigate('Menu');
+    navigate('Drinks');
   } catch (error) {
-    // erro de typagem no código
     if (error instanceof TypeError) {
       yield put(
         commonFailureAction(
@@ -40,16 +38,11 @@ function* addToLogin({payload}) {
     } else if (error.message === 'Network Error') {
       yield put(commonFailureAction(`Erro de conexao verifique sua Internet`));
     } else {
-      console.tron.log('proximo erro');
-      console.tron.log(error);
       yield put(commonFailureAction(`Proximo Erro`));
     }
-  } finally {
-    console.tron.log('finalizou');
   }
 }
 
 export default all([
-  spawn(startWatchingNetworkConnectivity),
-  takeLatest('@login/ADD_REQUEST', addToLogin),
+  takeLatest('@category/DRINK_REQUEST', categoryDrinkRequest),
 ]);
