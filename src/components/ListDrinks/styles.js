@@ -23,7 +23,7 @@ export const Modal = styled.TouchableOpacity`
   height: 100px;
   justify-content: space-around;
   align-items: center;
-  border-radius: 12px;
+  border-radius: 100px;
 `;
 export const AreaImage = styled.View`
   flex: 1;
@@ -32,7 +32,9 @@ export const AreaImage = styled.View`
 `;
 export const AreaText = styled.View`
   flex: 1;
-  justify-content: center;
+  padding-top: 15;
+  align-items: flex-start;
+  justify-content: flex-start;
 `;
 export const Photo = styled.Image.attrs(props => {
   return {
@@ -41,7 +43,7 @@ export const Photo = styled.Image.attrs(props => {
 })`
   width: 100%;
   height: 100%;
-  border-radius: 12px;
+  border-radius: 150px;
 `;
 export const Text = styled.Text`
   flex: 1;

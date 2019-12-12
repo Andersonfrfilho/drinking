@@ -8,13 +8,16 @@ import ListDrinks from '../../components/ListDrinks';
 export default function Drinks() {
   const {loading, error, message} = useSelector(state => state.common);
   const {title, drinks} = useSelector(state => state.drinks);
-  // const [stateUsername, setStateUsername] = useState('');
-  useEffect(() => {}, []);
+
+  const [stateListDrink, setStateListDrink] = useState([]);
+  useEffect(() => {
+    setStateListDrink(drinks);
+  }, [drinks]);// eslint-disable-line
   const dispatch = useDispatch();
   function handleDrink(link) {
-    console.log(link);
     dispatch(DrinksActions.DrinkRequest(link));
   }
+  console.tron.log(drinks);
   return (
     <Container>
       <Header iconName="arrow-left" title="voltar" buttonExist />
@@ -22,7 +25,10 @@ export default function Drinks() {
       {loading ? (
         <Loading />
       ) : (
-        <ListDrinks data={drinks} functionOnPress={link => console.log(link)} />
+        <ListDrinks
+          data={stateListDrink}
+          functionOnPress={link => handleDrink(link)}
+        />
       )}
     </Container>
   );

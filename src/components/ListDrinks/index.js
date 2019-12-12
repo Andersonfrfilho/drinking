@@ -29,7 +29,7 @@ export default function ListDrinks({
           <Modal
             key={index}
             disabled={false}
-            functionOnPress={link => functionOnPress('item.link')}
+            onPress={() => functionOnPress(item.idDrink)}
             style={{
               shadowColor: '#000',
               shadowOffset: {
@@ -61,6 +61,9 @@ export default function ListDrinks({
           index,
         })}
         numColumns={1}
+        initialScrollIndex={10}
+        initialNumToRender={10}
+        progressViewOffset={10}
       />
     </Container>
   );

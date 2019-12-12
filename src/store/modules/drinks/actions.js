@@ -4,9 +4,9 @@ export function addInfos(title, drinks) {
     payload: {title, drinks},
   };
 }
-export function DrinkRequest(link) {
+export function DrinkRequest(id) {
   return {
     type: '@drinks/ADD_REQUEST',
-    payload: {link},
+    payload: {id},
   };
 }

@@ -1,6 +1,9 @@
-export function addToMenuRequest(id) {
+export function addDetailDrink(info, ingredients) {
   return {
-    type: '@menu/ADD_REQUEST',
-    id,
+    type: '@detail/ADD_DRINK',
+    payload: {
+      info,
+      ingredients,
+    },
   };
 }

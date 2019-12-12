@@ -7,9 +7,9 @@ import Drinks from './pages/Drinks';
 import Details from './pages/Details';
 
 const createSwitchNavigatorApp = createSwitchNavigator({
+  Details,
   Category,
   Drinks,
-  Details,
 });
 
 const Routes = createAppContainer(createSwitchNavigatorApp);
