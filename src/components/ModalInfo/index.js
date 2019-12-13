@@ -62,11 +62,12 @@ export default function ModalInfo({
   ingredients,
   functionOnPressFlag,
   colors,
+  functionOnPressIconVideo,
 }) {
   return (
     <Container>
       <AreaImageInfo>
-        <AreaImage>
+        <AreaImage onPress={flag => functionOnPressFlag('normal')}>
           <Photo
             source={{
               uri: `${photo}`,
@@ -193,7 +194,7 @@ export default function ModalInfo({
         </AreaTextCaracteristic>
       </Ingredients>
       <BarInfo>
-        <IconArea>
+        <IconArea onPress={functionOnPressIconVideo} disabled={!video}>
           {video ? <Icon name="youtube" color="#361042" /> : <></>}
         </IconArea>
         <AreaModify>
@@ -239,6 +240,7 @@ ModalInfo.propTypes = {
   modified: PropTypes.string,
   ingredients: PropTypes.arrayOf(PropTypes.object),
   functionOnPressFlag: PropTypes.func,
+  functionOnPressIconVideo: PropTypes.func,
 };
 ModalInfo.defaultProps = {
   photo: 'https://facebook.github.io/react-native/img/tiny_logo.png',
@@ -265,4 +267,5 @@ ModalInfo.defaultProps = {
   creativeConformodit: 'creative',
   modified: 'modificar',
   ingredients: [],
+  functionOnPressIconVideo: () => {},
 };

@@ -3,7 +3,7 @@ import {Dimensions} from 'react-native';
 import {fontSize} from '../../config/Functions';
 
 const {height, width} = Dimensions.get('window');
-
+export const ScrollView = styled.ScrollView``;
 export const Container = styled.View`
   flex: 1;
   background: #361042;

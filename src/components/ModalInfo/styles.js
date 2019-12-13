@@ -39,7 +39,7 @@ export const AreaImageInfo = styled.View`
   flex: 1;
   flex-direction: row;
 `;
-export const AreaImage = styled.View`
+export const AreaImage = styled.TouchableOpacity`
   flex: 1;
 
   flex-wrap: wrap;
