@@ -7,3 +7,13 @@ export function addDetailDrink(info, ingredients) {
     },
   };
 }
+export function clearPageRequest() {
+  return {
+    type: '@detail/CLEAR_REQUEST',
+  };
+}
+export function clearDetailSuccess() {
+  return {
+    type: '@detail/CLEAR_REQUEST_SUCCESS',
+  };
+}

@@ -2,11 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Container, Button, AreaIcon, AreaText, Text, Icon} from './styles';
 
-export default function Header({title, buttonExist, color, iconName}) {
+export default function Header({
+  title,
+  functionOnPress,
+  buttonExist,
+  color,
+  iconName,
+}) {
   return (
     <Container>
       {buttonExist ? (
-        <Button>
+        <Button onPress={functionOnPress}>
           <AreaIcon>
             <Icon name={iconName} color={color} />
           </AreaIcon>

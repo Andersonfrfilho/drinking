@@ -34,9 +34,9 @@ export default function detail(state = INITIAL_STATE, action) {
         draft.strDrinkES = action.payload.info.strDrinkES;
         draft.strDrinkDE = action.payload.info.strDrinkDE;
         draft.strDrinkFR = action.payload.info.strDrinkFR;
-        draft.strDrinkZH_HANS = action.payload.info.strDrinkZH_HANS;
-        draft.strDrinkZH_HANT = action.payload.info.strDrinkZH_HANT;
-        draft.strTags = action.payload.info.strTagsstrTags;
+        draft.strDrinkZH_HANS = action.payload.info['strDrinkZH-HANS'];
+        draft.strDrinkZH_HANT = action.payload.info['strDrinkZH-HANT'];
+        draft.strTags = action.payload.info.strTags;
         draft.strVideo = action.payload.info.strVideo;
         draft.strCategory = action.payload.info.strCategory;
         draft.strIBA = action.payload.info.strIBA;
@@ -47,14 +47,40 @@ export default function detail(state = INITIAL_STATE, action) {
         draft.strInstructionsDE = action.payload.info.strInstructionsDE;
         draft.strInstructionsFR = action.payload.info.strInstructionsFR;
         draft.strInstructionsZH_HANS =
-          action.payload.info.strInstructionsZH_HANS;
+          action.payload.info['strInstructionsZH-HANS'];
         draft.strInstructionsZH_HANT =
-          action.payload.info.strInstructionsZH_HANT;
+          action.payload.info['strInstructionsZH-HANT'];
         draft.strDrinkThumb = action.payload.info.strDrinkThumb;
         draft.strCreativeCommonsConfirmed =
           action.payload.info.strCreativeCommonsConfirmed;
         draft.dateModified = action.payload.info.dateModified;
         draft.ingredients = action.payload.ingredients;
+      });
+    case '@detail/CLEAR_REQUEST_SUCCESS':
+      return produce(state, draft => {
+        draft.strDrink = null;
+        draft.strDrinkAlternate = null;
+        draft.strDrinkES = null;
+        draft.strDrinkDE = null;
+        draft.strDrinkFR = null;
+        draft.strDrinkZH_HANS = null;
+        draft.strDrinkZH_HANT = null;
+        draft.strTags = null;
+        draft.strVideo = null;
+        draft.strCategory = null;
+        draft.strIBA = null;
+        draft.strAlcoholic = null;
+        draft.strGlass = null;
+        draft.strInstructions = null;
+        draft.strInstructionsES = null;
+        draft.strInstructionsDE = null;
+        draft.strInstructionsFR = null;
+        draft.strInstructionsZH_HANS = null;
+        draft.strInstructionsZH_HANT = null;
+        draft.strDrinkThumb = null;
+        draft.strCreativeCommonsConfirmed = null;
+        draft.dateModified = null;
+        draft.ingredients = null;
       });
     default:
       return state;

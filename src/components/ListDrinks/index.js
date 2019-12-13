@@ -53,17 +53,7 @@ export default function ListDrinks({
             </AreaText>
           </Modal>
         )}
-        ItemSeparatorComponent={ItemSeparator}
         keyExtractor={({item}, index) => index.toString()}
-        getItemLayout={(data, index) => ({
-          length: 100,
-          offset: 100 * index,
-          index,
-        })}
-        numColumns={1}
-        initialScrollIndex={10}
-        initialNumToRender={10}
-        progressViewOffset={10}
       />
     </Container>
   );

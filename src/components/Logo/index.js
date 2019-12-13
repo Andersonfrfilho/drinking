@@ -23,7 +23,7 @@ Logo.propTypes = {
   error: PropTypes.bool,
 };
 Logo.defaultProps = {
-  message: 'placeholder input:',
+  message: '',
   colorMessage: '#f7f7f7',
   error: false,
 };

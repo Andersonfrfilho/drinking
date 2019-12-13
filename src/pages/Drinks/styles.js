@@ -12,7 +12,7 @@ export const Container = styled.View`
   padding-bottom: 15px;
 `;
 export const Title = styled.Text`
-  color: #456789;
+  color: #C35679;
   padding: 15px;
   font-size:${fontSize(width) + 12}
   text-align: center;
@@ -25,4 +25,12 @@ export const Loading = styled.ActivityIndicator.attrs(props => {
   };
 })`
   flex: 1;
+`;
+export const AreaFind = styled.View`
+  width: 100%;
+  height: 50px;
+`;
+export const InputFind = styled.TextInput`
+  width: 100%;
+  height: 100%;
 `;

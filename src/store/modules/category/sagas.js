@@ -16,7 +16,6 @@ function* categoryDrinkRequest({payload}) {
   const {link, name} = payload;
   try {
     const {data} = yield call(axios.get, `${link}`);
-    yield call(AsyncStorage.setItem, '@DrinKing:drinks', JSON.stringify(data));
     yield put(addInfos(name, data.drinks));
     yield put(commonSuccessAction(''));
     navigate('Drinks');

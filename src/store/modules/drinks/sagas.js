@@ -18,6 +18,12 @@ function* DrinkRequest({payload}) {
       axios.get,
       `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
     );
+
+    const {
+      drinks: [drinks],
+    } = data;
+    console.tron.log('aqui ta no ');
+    console.tron.log(drinks);
     const ingredients = [
       {
         strIngredient: data.drinks[0].strIngredient1,
@@ -83,10 +89,10 @@ function* DrinkRequest({payload}) {
     const ingredientsInfo = ingredients.filter(
       (element, index) => element.strIngredient !== null
     );
+    // console.tron.log(drinks['strDrinkZH-HANS']);
 
-    yield put(addDetailDrink(data, ingredientsInfo));
+    yield put(addDetailDrink(drinks, ingredientsInfo));
     yield put(commonSuccessAction(''));
-    console.tron.log('aqui');
     navigate('Details');
   } catch (error) {
     if (error instanceof TypeError) {

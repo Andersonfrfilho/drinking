@@ -15,12 +15,10 @@ export const List = styled.FlatList`
 `;
 
 export const Modal = styled.TouchableOpacity`
-  flex: 1;
   flex-direction: row;
   background: #b6567c;
-  margin-left: 20px;
-  margin-right: 20px;
   height: 100px;
+  margin-bottom: 5px;
   justify-content: space-around;
   align-items: center;
   border-radius: 100px;

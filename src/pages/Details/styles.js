@@ -12,7 +12,7 @@ export const Container = styled.View`
   padding-bottom: 15px;
 `;
 export const Title = styled.Text`
-  color: #456789;
+  color: #d6759c;
   padding: 15px;
   font-size:${fontSize(width) + 12}
   text-align: center;

@@ -20,7 +20,7 @@ export const Container = styled.View`
 export const Button = styled.TouchableOpacity`
   flex-direction: row;
   width: 70px;
-  background: #454678;
+  background: #d6759c;
   border-radius: 6;
 `;
 export const AreaIcon = styled.View`

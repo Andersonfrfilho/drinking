@@ -55,7 +55,7 @@ InputForm.propTypes = {
   enablesReturnKeyAutomatically: PropTypes.bool,
 };
 InputForm.defaultProps = {
-  placeholder: 'placeholder input:',
+  placeholder: '',
   functionOnChangeText: () => {},
   autoCompleteType: 'off',
   autoCorrect: false,

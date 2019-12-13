@@ -6,7 +6,7 @@ import {Platform} from 'react-native';
 // onde host é o ip da sua maquina
 if (__DEV__) {
   const tron = Reactotron.configure(
-    Platform.OS === 'ios' ? null : {host: '10.0.0.82'}
+    Platform.OS === 'ios' ? null : {host: '192.168.1.8'}
   )
     .setAsyncStorageHandler(AsyncStorage)
     .configure()
